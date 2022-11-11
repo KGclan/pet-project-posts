@@ -1,4 +1,4 @@
-export interface Post {
+export interface IPost {
     id: number;
     title: string;
     body: string;
@@ -7,7 +7,14 @@ export interface Post {
     reactions: number;
 }
 
-export interface Comment {
+export interface IPostResponce {
+    limit: number;
+    posts: IPost[];
+    skip: number;
+    total: number;
+}
+
+export interface IComment {
     id: number,
     body: string;
     postId: number;

@@ -1,0 +1,1 @@
+export * as postModel from './model';
