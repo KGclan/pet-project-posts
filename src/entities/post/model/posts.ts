@@ -24,6 +24,19 @@ export const getAllPosts = createAsyncThunk(
     },
 );
 
+export const getSearchedPosts = createAsyncThunk(
+    'getAllPosts',
+    async (phrase: string) => {
+        try {
+            const response = await API.posts.getSearchedPosts({q: phrase});
+
+            return response.data.posts;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+);
+
 export const postModel = createSlice({
     name: 'posts',
     initialState,
@@ -37,6 +50,16 @@ export const postModel = createSlice({
             state.all = action.payload;
         },
         [getAllPosts.rejected.type]: (state) => {
+            state.isListLoading = false;
+        },
+        [getSearchedPosts.pending.type]: (state) => {
+            state.isListLoading = true;
+        },
+        [getSearchedPosts.fulfilled.type]: (state, action: PayloadAction<IPost[]>) => {
+            state.isListLoading = false;
+            state.all = action.payload;
+        },
+        [getSearchedPosts.rejected.type]: (state) => {
             state.isListLoading = false;
         },
     }

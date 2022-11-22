@@ -15,7 +15,7 @@ type GetSearchedPostsParams = {
     q: string;
 };
 
-export const getSearchedPosts = ({...params}: GetSearchedPostsParams): AxiosPromise<IPost[]> => {
+export const getSearchedPosts = ({...params}: GetSearchedPostsParams): AxiosPromise<IPostResponce> => {
     return apiInstance.get('/search', { params });
 };
 
