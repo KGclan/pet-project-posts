@@ -1,7 +1,7 @@
 import React from 'react';
 
-import PostCard from 'entities/ui/post-card';
 import { IPost } from 'shared/api';
+import { PostCard } from 'entities/post';
 
 import styles from './styles.module.scss';
 

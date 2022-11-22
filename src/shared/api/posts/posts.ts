@@ -23,7 +23,7 @@ export const getPostComments = (id: number): AxiosPromise<IComment> => {
     return apiInstance.get(`/${id}/comments`);
 };
 
-export const postPost = (data: IPost) => {
+export const addPost = (data: IPost) => {
     return apiInstance.post('/add', data);
 };
 
