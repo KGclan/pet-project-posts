@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Card, Chip, Stack, Typography } from '@mui/material';
 
 import { IPost } from 'shared/api';
@@ -7,9 +7,10 @@ import styles from './styles.module.scss';
 
 interface IPostCard {
     postData: IPost;
+    buttons: ReactNode[];
 }
 
-const PostCard = ({ postData }: IPostCard) => {
+const PostCard = ({ postData, buttons }: IPostCard) => {
     const { title, body, tags } = postData;
 
     return (
@@ -30,6 +31,9 @@ const PostCard = ({ postData }: IPostCard) => {
                         />
                     )) : null
                 }
+            </Stack>
+            <Stack>
+                { buttons.map((button) => button) }
             </Stack>
         </Card>
     );

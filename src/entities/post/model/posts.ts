@@ -37,6 +37,19 @@ export const getSearchedPosts = createAsyncThunk(
     },
 );
 
+export const deletePost = createAsyncThunk(
+    'deletePost',
+    async (id: number) => {
+        try {
+            const response = await API.posts.deletePost(id);
+
+            return response.data;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+)
+
 export const postModel = createSlice({
     name: 'posts',
     initialState,
@@ -61,6 +74,11 @@ export const postModel = createSlice({
         },
         [getSearchedPosts.rejected.type]: (state) => {
             state.isListLoading = false;
+        },
+        [deletePost.fulfilled.type]: (state, action: PayloadAction<IPost>) => {
+            state.isListLoading = false;
+            console.log('action', action);
+            state.all = (state.all as IPost[]).filter((item) => item.id !== action.payload.id);
         },
     }
 });
