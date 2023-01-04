@@ -1,12 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import { postModel } from "entities/post";
+import { commentModel } from "entities/comment";
 
 
 
 export const store = configureStore({
     reducer: {
       posts: postModel.reducer,
+      comments: commentModel.reducer,
     },
 });
 

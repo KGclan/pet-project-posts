@@ -1,7 +1,7 @@
 import { AxiosPromise } from "axios";
 
 import { apiInstance } from "./base";
-import { IPost, IComment, IPostResponce } from "./models";
+import { IPost, IPostResponce, ICommentsResponce } from "./models";
 
 export const getPosts = (): AxiosPromise<IPostResponce> => {
     return apiInstance.get('');
@@ -19,7 +19,7 @@ export const getSearchedPosts = ({...params}: GetSearchedPostsParams): AxiosProm
     return apiInstance.get('/search', { params });
 };
 
-export const getPostComments = (id: number): AxiosPromise<IComment> => {
+export const getPostComments = (id: number): AxiosPromise<ICommentsResponce> => {
     return apiInstance.get(`/${id}/comments`);
 };
 

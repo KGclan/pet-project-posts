@@ -14,6 +14,13 @@ export interface IPostResponce {
     total: number;
 }
 
+export interface ICommentsResponce {
+    limit: number;
+    comments: IComment[];
+    skip: number;
+    total: number;
+}
+
 export interface IComment {
     id: number,
     body: string;
