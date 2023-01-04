@@ -10,6 +10,7 @@ const Search = () => {
 
     return (
         <TextField
+            className={styles.search}
             size="small"
             placeholder="Search"
             onChange={(e) => setSearchPhraseDebounsed(e.target.value)}
