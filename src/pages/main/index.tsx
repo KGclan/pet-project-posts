@@ -6,6 +6,7 @@ import { postModel } from "entities/post";
 import { useAppDispatch } from "app/store/hooks";
 import PostsList from "widgets/posts-list";
 import SearchAppBar from "widgets/search-app-bar";
+import { SpeedDialTooltip } from "shared/ui";
 
 import styles from './styles.module.scss';
 
@@ -21,6 +22,7 @@ const MainPage = () => {
         <div className={styles.wrapper}>
             <SearchAppBar />
             <PostsList posts={posts} />
+            <SpeedDialTooltip />
         </div>
     );
 };

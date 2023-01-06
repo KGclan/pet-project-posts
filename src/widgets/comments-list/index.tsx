@@ -5,7 +5,7 @@ import { RootState } from 'app/store';
 import { Comment } from 'entities/comment';
 import { CircularProgress, Stack, Typography } from '@mui/material';
 
-const CommentsLIst = () => {
+const CommentsList = () => {
     const comments = useSelector((state: RootState) => state.comments.all);
     const isCommentsLoading = useSelector((state: RootState) => state.comments.isListLoading);
 
@@ -22,4 +22,4 @@ const CommentsLIst = () => {
     );
 };
 
-export default CommentsLIst;
+export default CommentsList;
